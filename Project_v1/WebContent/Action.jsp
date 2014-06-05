@@ -11,13 +11,15 @@
 <script src ="js/jquery-2.1.1.min.js"></script>
 <script src ="js/bootstrap.js"></script>
 <script src ="js/ajax.js"></script>
+<jsp:useBean id="dao" class="Mybean.RegistDao"/>
+<jsp:useBean id="dto" class="Mybean.RegistDto"/>
 <% 
 	// 인코딩 
 	response.setCharacterEncoding("euc-kr");
 	request.setCharacterEncoding("euc-kr");
 	
 	// 서블릿에서 불러온 아이디와 패스워드
-
+		
 	
 	// 서블릿에서 불러온 아이디와 패스워드 세션에 저장
 
@@ -96,7 +98,7 @@ document.onkeydown = LockF5;
 	}
 	//패스워드 Ajax
 	function fnPass(){
-			
+		
 	}
 	
 </script>
@@ -119,7 +121,7 @@ document.onkeydown = LockF5;
    </ul>
     
     <!-- 아이디 패스워드 입력창 -->
-    <form class="navbar-form pull-right" action="/Project_v1/Action.jsp" method="POST">
+    <form class="navbar-form pull-right" action="/Project_v1/Action.do" method="POST">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     		<a href="#" data-toggle="modal" data-target="#modaljoin" style="color:#333333" draggable="false">회원가입</a>
     		&nbsp;&nbsp;
