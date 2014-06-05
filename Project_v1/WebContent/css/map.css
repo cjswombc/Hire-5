@@ -1,0 +1,7 @@
+@CHARSET "UTF-8";
+.view_btn{
+	position: absolute;
+}
+#map_canvas{
+	position: absolute;
+}

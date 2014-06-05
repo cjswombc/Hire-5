@@ -1,0 +1,186 @@
+@CHARSET "UTF-8";
+	body{
+		background: #F7F7F7;
+	}
+	.img{
+		margin-left: 3%;
+		position: relative;
+		display: block;
+		border-radius: 8px;	
+		filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale);
+		width: 500px;
+		height: 500px;
+		border: 1px solid gray;
+	}
+	.text{
+		position: relative;
+		margin-left: 25%;
+	}
+	.f1{
+		position: relative;
+		margin-left: 55%;
+	}
+	
+	.right-1{
+		position:absolute;
+		left: 80%;
+		background-color: #F7F7F7;
+		width:300px;
+		height: 100%;
+		top: -100%;
+		border: 1px solid #515151;
+		border-radius: 0px 0px 8px 8px;
+
+	}
+	.right-2{
+		position:absolute;
+		left: 80%;
+		background-color: #F7F7F7;
+		width:300px;
+		height: 100%;
+		top: -100%;
+		border: 1px solid #515151;
+		border-radius: 0px 0px 8px 8px;
+		
+	}
+	.right-3{
+		position:absolute;
+		left: 80%;
+		background-color: #F7F7F7;
+		width:300px;
+		height: 100%;
+		top: -100%;	
+		border: 1px solid #515151;
+		border-radius: 0px 0px 8px 8px;
+	}
+	.blog{
+		position:absolute;
+		left: 20%;
+	}
+	.move-tab{		
+		background-color: #515151;
+		height: 5%;
+		width: 100px;
+		top:100%;
+		position: absolute;
+		left:0;
+		cursor:pointer;
+		color:#F7F7F7;
+		border-radius: 0px 0px 0px 8px;
+
+	}
+	.move-tab2{
+			
+		background-color: #515151;
+		height: 5%;
+		width: 100px;
+		top:100%;
+		position: absolute;
+		margin-left:100px;
+			cursor:pointer;
+		color:#F7F7F7;
+	}
+	.move-tab3{
+		background-color: #515151;
+		height: 5%;
+		width: 100px;
+		top:100%;
+		position: absolute;
+		margin-left:200px;
+		cursor:pointer;
+		color:#F7F7F7;
+		border-radius: 0px 0px 8px 0px;
+	}  
+  
+	  #gallery { float: left; width: 100%; min-height: 100%; }
+	  .gallery.custom-state-active { background: #eee; }
+	  .gallery li { float: left; width: 200px; height: 325px; padding: 0.4em; margin: 0 0.4em 0.4em 0; text-align: center; }
+	  .gallery li h5 { margin: 0 0 0.4em; cursor: move; }
+	  .gallery li a { float: right; }
+	  .gallery li a.ui-icon-zoomin { float: left; }
+	  .gallery li img { width: 100%; cursor: move; height:72px;}
+	 
+	  #trash { float: right; width: 290px; min-height: 90%; padding: 1%; margin-top: 20%; top: 20%; border-radius: 0px 0px 8px 8px;
+	  		overflow-y: auto;height:90%;
+		scrollbar-base-color:       #CCCCCC;
+		scrollbar-arrow-color:      ${3:#000000;
+		scrollbar-track-color:      #999999;
+		scrollbar-3dlight-color:    #EEEEEE;
+		scrollbar-highlight-color:  #FFFFFF;
+		scrollbar-face-color:       #CCCCCC;
+		scrollbar-shadow-color:     #999999;
+		scrollbar-darkshadow-color: #666666;}
+	  }
+	  #trash h4 { line-height: 16px; margin: 0 0 0.4em; }
+	  #trash h4 .ui-icon { float: left; }
+	  #trash .gallery h5 { display: none; }
+
+	.grid-board{
+		position:absolute;
+		left:20%;
+		border: 5px solid #575757;
+		width: 57%;
+		height: 90%;
+		padding: 20px;
+		border-radius: 8px 8px 8px 8px;
+		float: left;
+		overflow-y: auto;
+		padding-right:0;
+	scrollbar-base-color:       #CCCCCC;
+	scrollbar-arrow-color:      ${3:#000000;
+	scrollbar-track-color:      #999999;
+	scrollbar-3dlight-color:    #EEEEEE;
+	scrollbar-highlight-color:  #FFFFFF;
+	scrollbar-face-color:       #CCCCCC;
+	scrollbar-shadow-color:     #999999;
+	scrollbar-darkshadow-color: #666666;}
+	}
+	
+	#del{
+		position: absolute;
+		top: 93%;
+		left: 65%;
+		border: 1px solid #575757;
+		border-radius: 8px 8px 8px 8px; 
+		background: #575757;
+		color: #f7f7f7;
+		margin: 3px;
+	}
+	.right-3 input[type="search"]{
+		position: absolute;
+		top:14%;
+		left: 3%;
+	}
+	#searchbtn{
+		position: absolute;
+		top:14%;
+		left: 80%;
+		border-radius: 3px 3px 3px 3px; 
+		background: #575757;
+		color: #f7f7f7;
+	}
+	.block{
+		position: absolute;
+		top:8%;
+		background: #575757;
+		width: 100%;
+		height: 30px;
+		color: #f7f7f7;
+	}
+	.friend{position:absolute; top:20%; width: 300px;}
+	.friend ul{list-style:none; left:0;margin-left:0;height:100%;	  		
+	overflow-y: auto;
+		scrollbar-base-color:       #CCCCCC;
+		scrollbar-arrow-color:      ${3:#000000;
+		scrollbar-track-color:      #999999;
+		scrollbar-3dlight-color:    #EEEEEE;
+		scrollbar-highlight-color:  #FFFFFF;
+		scrollbar-face-color:       #CCCCCC;
+		scrollbar-shadow-color:     #999999;
+		scrollbar-darkshadow-color: #666666;}}
+	.friend li{width:250px; height:100px; padding: 10px; padding-bottom: 30px; border-bottom: 3px double #5a5a5a; border-top:3px double #5a5a5a; }
+	.friend img{width: 70px; height: 100px;border-style:double;border: #575757; }
+	.friend b{font-size: 100%; font-weight:normal; color:#575757; margin-left: 20px;}
+	.friend button{top:30%;	border-radius: 3px 3px 3px 3px; 
+		background: #575757;
+		color: #f7f7f7; padding-left: 8%;}
