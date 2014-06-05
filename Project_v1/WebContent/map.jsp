@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <title>WTF Google Map</title>
 <script type="text/javascript"
    src="http://maps.google.com/maps/api/js?sensor=true"></script>

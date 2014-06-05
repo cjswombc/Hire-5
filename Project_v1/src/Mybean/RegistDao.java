@@ -3,10 +3,7 @@ package Mybean;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
+import java.util.Vector;
 
 public class RegistDao {
 	private Connection con;
@@ -56,4 +53,35 @@ public class RegistDao {
 			freeCon();
 		}
 	}
+	
+	public Vector getBoard(){
+		Vector v = new Vector();
+		RegistDto dto = new RegistDto();
+		String sql ="Select * from member";
+		try{
+			con = pool.getConnection();		
+			stmt = con.prepareStatement(sql);
+			rs = stmt.executeQuery();
+			
+			while(rs.next()){
+				dto.setId(rs.getString("id"));
+				dto.setPass(rs.getString("pass"));
+				dto.setBirth(rs.getString("birth"));
+				dto.setEmail(rs.getString("email"));
+				dto.setPhone(rs.getString("phone"));
+				dto.setPhone_type(rs.getString("phone_type"));
+				dto.setGender(rs.getString("gender"));
+				dto.setName(rs.getString("name"));
+				v.add(dto);
+			}
+		}
+		catch(Exception err){
+			System.out.println("getBoard : " + err);
+		}
+		finally{
+			freeCon();
+		}
+		return v;
+	}
 }
+

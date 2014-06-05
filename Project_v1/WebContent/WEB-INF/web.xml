@@ -23,11 +23,13 @@
  	    <url-pattern>/blog.do</url-pattern>
  	</servlet-mapping>
  	<servlet>
- 	   <servlet-name>log</servlet-name> 
- 	   <servlet-class>Mybean.LoginServlet</servlet-class>
+ 	    <servlet-name>log</servlet-name>
+ 	    <servlet-class>Mybean.LoginServlet</servlet-class>
  	</servlet>
  	<servlet-mapping>
  	    <servlet-name>log</servlet-name>
  	    <url-pattern>/Action.do</url-pattern>
  	</servlet-mapping>
+ 	
+
 </web-app>

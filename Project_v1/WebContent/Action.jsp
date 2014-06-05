@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<%@page import="Mybean.RegistDto"%>
+<%@page import="java.util.Vector"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <html>
 <head>
@@ -7,7 +9,7 @@
 <link href ="css/bootstrap.css" rel="stylesheet"/>
 <link href ="css/action.css" rel="stylesheet"/>
 <link href ="css/register.css" rel="stylesheet"/>
-<link href ="js/bootstrap-responsive.css" rel="stylesheet"/>
+<link href ="css/bootstrap-responsive.css" rel="stylesheet"/>
 <script src ="js/jquery-2.1.1.min.js"></script>
 <script src ="js/bootstrap.js"></script>
 <script src ="js/ajax.js"></script>
@@ -15,18 +17,12 @@
 <jsp:useBean id="dto" class="Mybean.RegistDto"/>
 <% 
 	// 인코딩 
-	response.setCharacterEncoding("euc-kr");
-	request.setCharacterEncoding("euc-kr");
-	
-	// 서블릿에서 불러온 아이디와 패스워드
-		
+	response.setCharacterEncoding("UTF-8");
+	request.setCharacterEncoding("UTF-8");
 	
 	// 서블릿에서 불러온 아이디와 패스워드 세션에 저장
-
 	
 	// 서버로 보낸 아이디
-
-	
 %>
 <script>
 
@@ -87,19 +83,11 @@ document.onkeydown = LockF5;
 		})();
 		
 	//아이디 체크 
-	function Idcheck(){
-		
-		
-	}
+
 	//로그인 하지 않았을 경우 아이디 모달창을 띄움
-	function LogModal(){
-		
-		
-	}
+
 	//패스워드 Ajax
-	function fnPass(){
-		
-	}
+
 	
 </script>
 </head>
