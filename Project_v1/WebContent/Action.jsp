@@ -10,6 +10,7 @@
 <link href ="js/bootstrap-responsive.css" rel="stylesheet"/>
 <script src ="js/jquery-2.1.1.min.js"></script>
 <script src ="js/bootstrap.js"></script>
+<script src ="js/ajax.js"></script>
 <% 
 	// 인코딩 
 	response.setCharacterEncoding("euc-kr");
@@ -89,7 +90,15 @@ document.onkeydown = LockF5;
 		
 	}
 	//로그인 하지 않았을 경우 아이디 모달창을 띄움
-
+	function LogModal(){
+		
+		
+	}
+	//패스워드 Ajax
+	function fnPass(){
+			
+	}
+	
 </script>
 </head>
 
