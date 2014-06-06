@@ -195,7 +195,7 @@ $(function() {
 </ul>
 </div>
 </div>
-
+<!-- 움직이는 탭 -->
 <div class="mode">
 <div class="right-1">
 	<div id="trash" class="ui-widget-content ui-state-default">
