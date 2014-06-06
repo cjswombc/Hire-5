@@ -5,8 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
-<title>Insert title here</title>
+<title>Hire</title>
 <link href ="css/bootstrap.css" rel="stylesheet"/>
 <link href ="css/action.css" rel="stylesheet"/>
 <link href ="css/register.css" rel="stylesheet"/>
@@ -24,13 +23,8 @@
 	// 로그인 되었을 경우 가져오는 세션 값
 	String s_id = (String)session.getAttribute("s_id");
 	String s_pw = (String)session.getAttribute("s_pw");
-	System.out.println(s_id);
-	
-	
-	// 서버로 보낸 아이디
 %>
 <script>
-
 //F5못누르게하기
 function LockF5(){
 	if (event.keyCode == 116) {
@@ -91,23 +85,13 @@ document.onkeydown = LockF5;
 
 	//패스워드 Ajax
 	
-	// 비로그인 시 Blog 버튼 비활성화
-	/* 
-	$(
-		function(){
-		var blog=$("#blog");
-		if($("#log_id").text()==null||$("#log_id").text()==""){
-			blog.click(function(){
-					$("#login-modal").show();
-				}					
-			);
-		}
-		}
-	);
-	 */
+	// 로그인을 해주세요 모달창에서 회원가입 or 아이디/비밀번호 찾기를 눌렀을 시
+
+	
+	
+
 </script>
 </head>
-
 <body>
 <!-- 상단 고정 탭 -->
 <nav class="navbar navbar-fixed-top">
@@ -120,7 +104,7 @@ document.onkeydown = LockF5;
    		<li class="divider-vertical"></li>
      <li><a href="map.jsp" style="font-size: 30px" target="if" draggable="false">Map</a></li>
      <li class="divider-vertical"></li>
-     <li><a href="blog.jsp" style="font-size: 30px" target="if" draggable="false" id="blog">Blog</a></li>
+     <li><a href="#" data-toggle="modal" data-target="#login-modal" style="font-size: 30px" draggable="false" id="blog">Blog</a></li>
      <li class="divider-vertical"></li>
    </ul>
     
@@ -242,11 +226,11 @@ document.onkeydown = LockF5;
     		<label for="email">이메일</label>
     		<input type="email" id="email" name="email" required="required" placeholder="E-mail"/>&nbsp;&nbsp;&nbsp;<button type="button" class="btn">E-mail 확인</button>
     		<br/>	
-    		</form>
     		</div>
     	</div>
         <button type="submit" class="nobtn">확인</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+    		</form>
       </div>
     </div>
   </div>
@@ -309,29 +293,28 @@ document.onkeydown = LockF5;
      </div>
 </div>
 
-<!-- 로그인 모달창 -->
+<!-- 로그인해주세요 모달창 -->
 <div class="modal fade" tabindex="-1" role="dialog" id="login-modal" aria-hidden="true">
 <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">글쓰기</h4>
+      <button type="button" class="close" id="modal_close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">로그인을 해주세요.</h4>
       	</div>
       	 <div class="modal-body">	
-      	 <form id="upload" name="upload" class="f2" method="post" enctype="multipart/form-data">
-      	 	<p id="imagePreview" class="img"></p>
-      		<input type="text" placeholder="제목" class="text" name="sub" id="sub"/><br/>
-      		<input id="imageInput" type="file" name="myPhoto" onchange="loadImageFile();" /><br/><br/>
-   		</form>
-      		<textarea rows="6" cols="60" placeholder="사진 내용" class="text"></textarea><br/>
-      		<form id="f1" class="f1">
-      		<button type="submit" class="nobtn">Send</button>
-      		<button type="reset">Reset</button>      	
-      		</form>
+      	   <form class="navbar-form pull-right" action="/Project_v1/Action.do" method="POST">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    		<a href="#" data-toggle="modal" data-target="#modaljoin" style="color:#333333" draggable="false">회원가입</a>
+    		&nbsp;&nbsp;
+    		<a href="#" data-toggle="modal" data-target="#modalid" style="color:#333333" draggable="false">아이디</a>&nbsp;/&nbsp;<a href="#" data-toggle="modal" data-target="#modalpass" style="color:#333333">패스워드</a>&nbsp;찾기	
+    	<br/>
+     	<input type="text" placeholder="I.D" required="required" class="log_id" id="log_id" name="log_id"/>&nbsp;&nbsp;&nbsp;
+     	<input type="password" placeholder="PassWord" required="required" class="log_pw" id="log_pw" name="log_pw"/>
+     	<button type="submit" class="nobtn">확인</button>
+     </form>
       	 </div>      	
       	</div>
      </div>
 </div>
-
 </body>
 </html>

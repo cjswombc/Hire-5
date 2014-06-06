@@ -38,7 +38,7 @@
       controlText.style.fontSize = '20px';
       controlText.style.paddingLeft = '4px';
       controlText.style.paddingRight = '4px';
-      controlText.innerHTML = '<b>글을 쓰자ㅏㅏㅏㅏㅏㅏ</b>';
+      controlText.innerHTML = '<img src="images/animated-overlay.gif"/>';
       controlUI.appendChild(controlText);
 
       google.maps.event.addDomListener(controlUI, 'click', function() {

@@ -23,8 +23,8 @@ public class LoginServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		// 문자 인코딩
-		req.setCharacterEncoding("UTF-8");
-		resp.setCharacterEncoding("UTF-8");
+		req.setCharacterEncoding("EUC-KR");
+		resp.setCharacterEncoding("EUC-KR");
 		
 		PrintWriter out = resp.getWriter();
 		/*RegistDao dao = new RegistDao();

@@ -120,7 +120,7 @@ $(function() {
     }
  
     //이미지 모달창
-    function viewLargerImage( $link ) {
+/*     function viewLargerImage($link){
       var src = $link.attr("href"),
         title = $link.siblings("img").attr("alt"),
         $modal = $("img[src$='"+src+"']");
@@ -137,7 +137,7 @@ $(function() {
           });
         },1);
       }
-    }
+    } */
  
     // resolve the icons behavior with event delegation
     $("ul.gallery > li").click(function(event) {
@@ -172,7 +172,7 @@ $(function() {
 <%for(int i=0;i<10;i++){ %>
   <li class="ui-widget-content ui-corner-tr">
     <table>
-    <thead><h5 class="ui-widget-header">이미지가 없습니다.</h5></thead>
+    <thead><tr><td><h5 class="ui-widget-header">이미지가 없습니다.</h5></td></tr></thead>
     <tbody>
     <tr><td><img src="images/no_image.gif" alt="The peaks of High Tatras" width="96" height="72"></td></tr><!-- 사진 경로 or DB의 사진 -->
     <!-- 주소 -->
@@ -185,7 +185,7 @@ $(function() {
     <tfoot>
     <tr>
   	<!-- 사진 경로 or DB의 사진 -->
-    <td><a href="images/no_image.gif" title="View larger image" class="ui-icon ui-icon-zoomin">View larger</a><a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a></td>
+    <td><a href="#" data-toggle="modal" data-target="#read-modal" title="View larger image" class="ui-icon ui-icon-zoomin">View larger</a><a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a></td>
     </tr>
     <tr><td><p>8:00PM-2014년 5월 27일</p></td></tr>
     </tfoot>
@@ -193,7 +193,6 @@ $(function() {
   </li>
   <%} %>
 </ul>
-
 </div>
 </div>
 
@@ -236,6 +235,36 @@ $(function() {
 	</div>
 </div>
 </div>
+<!-- 글보기 모달 -->
+<div class="modal fade" tabindex="-1" role="dialog" id="read-modal" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+      	 <div class="modal-body">	
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      	 	 <table>
+    <thead><tr><td><h5 class="ui-widget-header">이미지가 없습니다.</h5></td></tr></thead>
+    <tbody>
+    <tr><td><img src="images/no_image.gif" alt="The peaks of High Tatras" width="96" height="72"></td></tr><!-- 사진 경로 or DB의 사진 -->
+    <!-- 주소 -->
+    <tr><td><p class="addr">서울특별시 송파구 잠실동 40-1</p></td></tr>
+    <!-- 컨텐츠 -->
+    <tr>
+    <td><p class="content">민쥬언니, 은정언니 선쥬와 함꼐 롯데월드에 놀러갔다.<br/>놀이공원은 역시 롯데월드지^^</p><td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+  	<!-- 사진 경로 or DB의 사진 -->
+    <td><a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a></td>
+    </tr>
+    <tr><td><p>8:00PM-2014년 5월 27일</p></td></tr>
+    </tfoot>
+    </table>
+      	 </div>      	
+      	</div>
+     </div>
+</div>
+
 
 </body>
 </html>

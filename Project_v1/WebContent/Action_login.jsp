@@ -138,9 +138,9 @@ document.onkeydown = LockF5;
      <li class="divider-vertical"></li>
    </ul>
     
-    <!-- 아이디 패스워드 입력창 -->
+    <!-- 로그인 정보창 -->
        <form class="navbar-form pull-right">
-			로그인 됨.<button type="button" id="logout">로그아웃</button>
+			<span><%=s_id%></span><button type="button" id="logout">로그아웃</button>
 	   </form>
 	</div>
 	</div>
@@ -156,7 +156,7 @@ document.onkeydown = LockF5;
 	<div class="profile">
 		<div>
 			<img src="images/no_image.gif" id="pro-img"/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>	
-			<h5>님 환영합니다.</h5><br/>
+			<h5><%=s_id%>님 환영합니다.</h5><br/>
 			<button type="button" class="nobtn" id="set">회원정보 수정</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="nobtn" id="logout1">로그아웃</button>
 		</div>
 		<br/>
