@@ -4,7 +4,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Blog</title>
-
 <link href ="css/bootstrap.css" rel="stylesheet"/>
 <link href ="css/blog.css" rel="stylesheet"/>
 <link href ="js/bootstrap-responsive.css" rel="stylesheet"/>
@@ -13,7 +12,13 @@
 <script src ="js/jquery-2.1.1.min.js"></script>
 <script src="js/jquery-ui-1.10.4.js"></script>
 <script src ="js/ajax.js"></script>
-<script src ="js/bootstrap.js"></script> 
+<script src ="js/bootstrap.js"></script>
+<%
+	//서블릿에서 전해준 세션 값
+	String s_id = (String)session.getAttribute("s_id");
+	String s_pw = (String)session.getAttribute("s_pw");
+	// MVC와 연결 후 
+%> 
 <script>
 //F5못누르게하기
 function LockF5(){
@@ -150,7 +155,13 @@ $(function() {
       return false;
     });
   });
-
+	// 글 리스트
+	
+	// 사이드 탭 고정
+	
+	// 수정 모달
+		
+	
 </script>
 </head>
 <body>

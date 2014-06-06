@@ -86,28 +86,42 @@ document.onkeydown = LockF5;
 		}
 		}
 		})();
-	
-	//로그인 하지 않았을 경우 아이디 모달창을 띄움
-
-	//패스워드 Ajax
-	
-	// 비로그인 시 Blog 버튼 비활성화
-	/* 
+	// #Logout 버튼 구현
 	$(
 		function(){
-		var blog=$("#blog");
-		if($("#log_id").text()==null||$("#log_id").text()==""){
-			blog.click(function(){
-					$("#login-modal").show();
-				}					
-			);
-		}
-		}
-	);
-	 */
+			var $outBtn= $("#logout"); 
+			
+			if($outBtn.click(function(){
+				<%
+					session.removeAttribute("s_id");
+					session.removeAttribute("s_pw");
+				%>
+				alert("로그아웃 되었습니다.");
+				window.location.href="Action.jsp";
+			})){
+			}
+		}		
+	);	
+	// #Logout1 버튼 구현
+	$(
+			function(){
+				var $outBtn= $("#logout1"); 
+				
+				if($outBtn.click(function(){
+					<%
+						session.removeAttribute("s_id");
+						session.removeAttribute("s_pw");
+					%>
+					alert("로그아웃 되었습니다.");
+					window.location.href="Action.jsp";
+				})){
+				}
+			}		
+		);
+	
+	
 </script>
 </head>
-
 <body>
 <!-- 상단 고정 탭 -->
 <nav class="navbar navbar-fixed-top">
@@ -125,19 +139,40 @@ document.onkeydown = LockF5;
    </ul>
     
     <!-- 아이디 패스워드 입력창 -->
-    <form class="navbar-form pull-right" action="/Project_v1/Action.do" method="POST">
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    		<a href="#" data-toggle="modal" data-target="#modaljoin" style="color:#333333" draggable="false">회원가입</a>
-    		&nbsp;&nbsp;
-    		<a href="#" data-toggle="modal" data-target="#modalid" style="color:#333333" draggable="false">아이디</a>&nbsp;/&nbsp;<a href="#" data-toggle="modal" data-target="#modalpass" style="color:#333333">패스워드</a>&nbsp;찾기	
-    	<br/>
-     	<input type="text" placeholder="I.D" required="required" class="log_id" id="log_id" name="log_id"/>&nbsp;&nbsp;&nbsp;
-     	<input type="password" placeholder="PassWord" required="required" class="log_pw" id="log_pw" name="log_pw"/>
-     	<button type="submit" class="nobtn">확인</button>
-     </form>
+       <form class="navbar-form pull-right">
+			로그인 됨.<button type="button" id="logout">로그아웃</button>
+	   </form>
 	</div>
 	</div>
 </nav>
+
+<!-- 탭 메뉴 -->
+<div class="side-menu">
+<!-- 클릭창 -->
+	<div class="click">
+		<h2 style="writing-mode:tb-rl; height:300pt; font-size: 9pt;">클릭을하면 넌 웃을 수 있고</h2>
+	</div>
+	<!-- 프로필 사진 -->
+	<div class="profile">
+		<div>
+			<img src="images/no_image.gif" id="pro-img"/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>	
+			<h5>님 환영합니다.</h5><br/>
+			<button type="button" class="nobtn" id="set">회원정보 수정</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="nobtn" id="logout1">로그아웃</button>
+		</div>
+		<br/>
+		<!-- 글쓰기 버튼 -->
+		<button type="button" class="wr-btn" data-toggle="modal" data-target="#writhe-modal">글&nbsp;&nbsp;쓰&nbsp;&nbsp;기</button>
+		<br/>
+		<!-- 댓글 달면 나오는 것들 -->
+		<div class="auto-table">
+			<table class="msg">
+				<tbody>
+					<tr><td><a>~님께서 글을 남기셨습니다.</a></td></tr>
+				</tbody>
+			</table>
+		</div>
+	</div>	
+</div>
 
 <!-- Modal 부분 회원가입, id/password 찾기-->		
 <div class="modal fade" id="modaljoin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -310,28 +345,6 @@ document.onkeydown = LockF5;
 </div>
 
 <!-- 로그인 모달창 -->
-<div class="modal fade" tabindex="-1" role="dialog" id="login-modal" aria-hidden="true">
-<div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">글쓰기</h4>
-      	</div>
-      	 <div class="modal-body">	
-      	 <form id="upload" name="upload" class="f2" method="post" enctype="multipart/form-data">
-      	 	<p id="imagePreview" class="img"></p>
-      		<input type="text" placeholder="제목" class="text" name="sub" id="sub"/><br/>
-      		<input id="imageInput" type="file" name="myPhoto" onchange="loadImageFile();" /><br/><br/>
-   		</form>
-      		<textarea rows="6" cols="60" placeholder="사진 내용" class="text"></textarea><br/>
-      		<form id="f1" class="f1">
-      		<button type="submit" class="nobtn">Send</button>
-      		<button type="reset">Reset</button>      	
-      		</form>
-      	 </div>      	
-      	</div>
-     </div>
-</div>
 
 </body>
 </html>
