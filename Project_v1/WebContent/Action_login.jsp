@@ -100,7 +100,13 @@ document.onkeydown = LockF5;
 		}		
 	);	
 	// #Logout1 버튼 구현
-	
+	$(
+		function(){
+			$("#logout1").click(function(){
+				document.user_logout.submit();
+			});
+		}		
+	);
 </script>
 </head>
 <body>

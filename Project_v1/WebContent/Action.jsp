@@ -82,11 +82,6 @@ document.onkeydown = LockF5;
 		}
 		}
 		})();
-	
-	
-	
-	
-	
 </script>
 </head>
 <body>
