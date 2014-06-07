@@ -107,8 +107,10 @@ $(function() {
           $( "<ul class='gallery ui-helper-reset'/>" ).appendTo( $trash ); 
         $item.find( "a.ui-icon-trash" ).remove();
         $item.append( recycle_icon ).appendTo( $list ).fadeIn(function() {
-          $item.animate({ width: "150px" })
-            .find( "img" ).animate({ height: "50px" });
+          $item.animate({ width: "200px",height:"250px",
+        	padding:"5%"         
+          })
+            .find( "img" ).animate({ height: "72px" });
         });
       });
     }
@@ -117,7 +119,7 @@ $(function() {
     var trash_icon = "<a href='link/to/trash/script/when/we/have/js/off' title='Delete this image' class='ui-icon ui-icon-trash'>Delete image</a>";
     function recycleImage( $item ) {
       $item.fadeOut(function() {
-        $item.find("a.ui-icon-refresh").remove().end().css( "width", "200px").append( trash_icon )
+        $item.find("a.ui-icon-refresh").remove().end().css( {width:"200px", height:"325px",padding: "0.4em", margin: "0 0.4em 0.4em 0" }).append( trash_icon )
           .find( "img" ).css( "height", "72px" ).end().appendTo($gallery).fadeIn();
       });
     }
@@ -149,6 +151,14 @@ $(function() {
 </head>
 <body>
 <div class="grid-board">
+
+<div class="top-tab">
+		<ul>
+			<li><input type="search"/><button>검색</button></li>	
+		</ul>
+</div>
+
+<div class="div-body">
 <div class="ui-widget ui-helper-clearfix">
 <!-- 우리의 사진 리스트 뜰곳 -->
 <ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix">
@@ -178,6 +188,7 @@ $(function() {
 </ul>
 </div>
 </div>
+</div>
 <!-- 움직이는 탭 -->
 <div class="mode">
 <div class="right-1">
@@ -191,12 +202,12 @@ $(function() {
 </div>
 <div class="right-2">
 	<div class="move-tab2">
-	<p align="center">추천블로그</p>
+	<p align="center">지인블로그</p>
 	</div>
 </div>
 <div class="right-3">
 <!-- 그냥 스타일 -->
-<div class="block"><p>지인 검색</p></div>
+<div class="block"><p>블로그 검색</p></div>
 	<!-- 검색 -->
 	<div>
 	<form class="search">
@@ -214,7 +225,7 @@ $(function() {
 	</ul>
 	</div>
 	<div class="move-tab3">
-	<p align="center">지인블로그</p>
+	<p align="center">추천블로그</p>
 	</div>
 </div>
 </div>
@@ -247,7 +258,5 @@ $(function() {
       	</div>
      </div>
 </div>
-
-
 </body>
 </html>
