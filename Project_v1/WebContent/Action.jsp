@@ -16,12 +16,16 @@
 <jsp:useBean id="dao" class="Mybean.RegistDao"/>
 <jsp:useBean id="dto" class="Mybean.RegistDto"/>
 <% 
+	// 세션 설정	
+	response.setHeader("Pragma","no-cache");
+	response.setHeader("Cache-Control","no-cache");
+	response.addHeader("Cache-Control","no-store");
+	response.setDateHeader("Expires", 0);
 	// 인코딩 
 	response.setCharacterEncoding("UTF-8");
 	request.setCharacterEncoding("UTF-8");
 %>
 <script>
-
 
 //F5못누르게하기
 function LockF5(){
@@ -79,12 +83,10 @@ document.onkeydown = LockF5;
 		}
 		})();
 	
-	//로그인 하지 않았을 경우 아이디 모달창을 띄움
-
-	//패스워드 Ajax
 	
-	// 로그인을 해주세요 모달창에서 회원가입 or 아이디/비밀번호 찾기를 눌렀을 시	
-
+	
+	
+	
 </script>
 </head>
 <body>

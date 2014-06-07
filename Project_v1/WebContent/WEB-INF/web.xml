@@ -30,6 +30,20 @@
  	    <servlet-name>log</servlet-name>
  	    <url-pattern>/Action.do</url-pattern>
  	</servlet-mapping>
- 	
-
+ 	<servlet>
+ 		<servlet-name>logout</servlet-name>
+ 		<servlet-class>Mybean.LogoutServlet</servlet-class>
+ 	</servlet>
+	<servlet-mapping>
+		<servlet-name>logout</servlet-name>
+		<url-pattern>/Logout.do</url-pattern>
+	</servlet-mapping>
+	<filter>  
+		<filter-name>sessionExpiredFilter</filter-name>  
+		<filter-class>Mybean.SessionCheckFilter</filter-class>  
+	</filter>  
+	<filter-mapping>  
+		<filter-name>sessionExpiredFilter</filter-name>  
+		<url-pattern>*.do</url-pattern>  
+	</filter-mapping>
 </web-app>

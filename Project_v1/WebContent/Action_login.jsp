@@ -5,7 +5,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
 <title>Insert title here</title>
 <link href ="css/bootstrap.css" rel="stylesheet"/>
 <link href ="css/action.css" rel="stylesheet"/>
@@ -20,17 +19,20 @@
 	// 인코딩 
 	response.setCharacterEncoding("UTF-8");
 	request.setCharacterEncoding("UTF-8");
+	//iframe에 세션 전달
+	response.setHeader("P3P","CP='CAO PSA CONi OTR OUR DEM ONL'");
+	response.setHeader("Pragma","no-cache");
+	response.setHeader("Cache-Control","no-cache");
+	response.addHeader("Cache-Control","no-store");
+	response.setDateHeader("Expires", 0);
 	
 	// 로그인 되었을 경우 가져오는 세션 값
 	String s_id = (String)session.getAttribute("s_id");
 	String s_pw = (String)session.getAttribute("s_pw");
+
 	
-	response.setHeader("P3P","CP='CAO PSA CONi OTR OUR DEM ONL'");
-
-
 %>
 <script>
-
 //F5못누르게하기
 function LockF5(){
 	if (event.keyCode == 116) {
@@ -92,17 +94,9 @@ document.onkeydown = LockF5;
 	// #Logout 버튼 구현
 	$(
 		function(){
-			var $outBtn= $("#logout"); 
-			
-			if($outBtn.click(function(){
-				<%
-					session.removeAttribute("s_id");
-					session.removeAttribute("s_pw");
-				%>
-				alert("로그아웃 되었습니다.");
-				window.location.href="Action.jsp";
-			})){
-			}
+			$("#logout").click(function(){
+				document.user_logout.submit();
+			});
 		}		
 	);	
 	// #Logout1 버튼 구현
@@ -330,9 +324,11 @@ document.onkeydown = LockF5;
      </div>
 </div>
 
+<!-- hidden으로 사용될 form -->
+<form action="/Project_v1/Logout.do" name="user_logout" method="post">
+	<input type="hidden"/>
+</form>
 
-	
-<!-- 로그인 모달창 -->
 
 </body>
 </html>

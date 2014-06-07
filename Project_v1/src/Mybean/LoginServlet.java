@@ -43,25 +43,25 @@ public class LoginServlet extends HttpServlet{
 		String admin ="admin";
 		String pass = "1111";
 		
-			// 로그인 되었을 경우
-			if(id.equals(admin)&&pw.equals(pass)){
-				HttpSession session = req.getSession();
-				session.setAttribute("s_id", admin);
-				session.setAttribute("s_pw", pass);
+		// 로그인 되었을 경우
+		if(id.equals(admin)&&pw.equals(pass)){
+			HttpSession session = req.getSession();
+			session.setAttribute("s_id", admin);
+			session.setAttribute("s_pw", pass);
+			
+			// Action_login으로 보내주는 데이터
+			RequestDispatcher view = req.getRequestDispatcher("Action_login.jsp");
+			view.forward(req, resp);
 				
-				// Action_login으로 보내주는 데이터
-				RequestDispatcher view = req.getRequestDispatcher("Action_login.jsp");
-				view.forward(req, resp);
-					
-			}
-			// 로그인 시 아이디 또는 비밀번호가 틀렸을 시
-			else if(id!=admin||pw!=pass){
-				out.println("<script>");
-				out.println("alert('아이디 또는 비밀번호를 확인하세요.');");
-				out.println("history.back();");
-				out.println("</script>");
-				return;
-			}
 		}
-	}	
+		// 로그인 시 아이디 또는 비밀번호가 틀렸을 시
+		else if(id!=admin||pw!=pass){
+			out.println("<script>");
+			out.println("alert('아이디 또는 비밀번호를 확인하세요.');");
+			out.println("history.back();");
+			out.println("</script>");
+			return;
+		}
+	}
+}	
 

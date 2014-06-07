@@ -14,11 +14,12 @@
 <script src ="js/ajax.js"></script>
 <script src ="js/bootstrap.js"></script>
 <%
+	//세션 연결하기
+	response.setHeader("P3P","CP='CAO PSA CONi OTR OUR DEM ONL'");
 	//서블릿에서 전해준 세션 값
 	String s_id = (String)session.getAttribute("s_id");
 	String s_pw = (String)session.getAttribute("s_pw");
 
-	System.out.println(s_id);
 	// MVC와 연결 후 
 %> 
 <script>

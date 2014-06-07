@@ -4,6 +4,14 @@
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 <meta charset="UTF-8">
 <title>WTF Google Map</title>
+<%
+	//session 연결
+	response.setHeader("P3P","CP='CAO PSA CONi OTR OUR DEM ONL'");
+	//서블릿에서 전해준 세션 값
+	String s_id = (String)session.getAttribute("s_id");
+	String s_pw = (String)session.getAttribute("s_pw");
+
+%>
 <script type="text/javascript"
    src="http://maps.google.com/maps/api/js?sensor=true"></script>
 <link href="css/bootstrap.css" rel="stylesheet" />
