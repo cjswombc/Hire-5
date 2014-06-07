@@ -209,7 +209,7 @@
    google.maps.event.addDomListener(window, 'load', initialize);
    </script>
 </head>
-<body onload="initialize()">
+<body>
 <div id="map_canvas" style="width: 100%; height: 100%;"></div>
    <div class="modal fade" tabindex="-1" role="dialog" id="writhe-modal" aria-hidden="true">
       <div class="modal-dialog">
