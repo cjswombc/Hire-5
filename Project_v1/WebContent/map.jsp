@@ -67,7 +67,7 @@
             var marker = new google.maps.Marker({
                position : event.latLng,
                map : map,
-               icon : image, // 마커 이미지 
+               //icon : image, // 마커 이미지 
                title : '위치마커'
             });
             attachMessage(marker, event.latLng);
@@ -108,7 +108,7 @@
       controlText.style.paddingRight = '4px';
       
       controlText.innerHTML = "<input type='textbox' id='address' placeholder='검색할 주소를 입력하십시오.' />"
-            + "<input type='button' value='검색' onClick='codeAddress()' />";
+            + "<input type='button' value='검색' onclick='codeAddress()' />";
       controlUI.appendChild(controlText);
 
    }
@@ -116,7 +116,7 @@
    function initialize() {
       geocoder = new google.maps.Geocoder();
       var myOptions = {
-         zoom : 8,
+         zoom : 15,
          center : myLatlng,
          scrollwheel : true,
          zoomControl : false,
@@ -148,7 +148,7 @@
 
    //해당 위치에 주소를 가져오고, 마크를 클릭시 infowindow에 주소를 표시한다.
    function attachMessage(marker, latlng) {
-      geocoder = new google.maps.Geocoder();
+      //geocoder = new google.maps.Geocoder();
       geocoder.geocode({
          'latLng' : latlng
       }, function(results, status) {
