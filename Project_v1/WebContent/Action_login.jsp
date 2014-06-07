@@ -24,10 +24,10 @@
 	// 로그인 되었을 경우 가져오는 세션 값
 	String s_id = (String)session.getAttribute("s_id");
 	String s_pw = (String)session.getAttribute("s_pw");
-	System.out.println(s_id);
 	
-	
-	// 서버로 보낸 아이디
+	response.setHeader("P3P","CP='CAO PSA CONi OTR OUR DEM ONL'");
+
+
 %>
 <script>
 
@@ -86,6 +86,9 @@ document.onkeydown = LockF5;
 		}
 		}
 		})();
+	//blog로 세션 값 보내주기
+
+	
 	// #Logout 버튼 구현
 	$(
 		function(){
@@ -103,22 +106,6 @@ document.onkeydown = LockF5;
 		}		
 	);	
 	// #Logout1 버튼 구현
-	$(
-			function(){
-				var $outBtn= $("#logout1"); 
-				
-				if($outBtn.click(function(){
-					<%
-						session.removeAttribute("s_id");
-						session.removeAttribute("s_pw");
-					%>
-					alert("로그아웃 되었습니다.");
-					window.location.href="Action.jsp";
-				})){
-				}
-			}		
-		);
-	
 	
 </script>
 </head>
@@ -137,10 +124,9 @@ document.onkeydown = LockF5;
      <li><a href="blog.jsp" style="font-size: 30px" target="if" draggable="false" id="blog">Blog</a></li>
      <li class="divider-vertical"></li>
    </ul>
-    
     <!-- 로그인 정보창 -->
        <form class="navbar-form pull-right">
-			<span><%=s_id%></span><button type="button" id="logout">로그아웃</button>
+			<span><%=s_id%>님의 #번째 방문입니다.</span><button type="button" id="logout" class="btn">로그아웃</button>
 	   </form>
 	</div>
 	</div>
@@ -344,6 +330,8 @@ document.onkeydown = LockF5;
      </div>
 </div>
 
+
+	
 <!-- 로그인 모달창 -->
 
 </body>

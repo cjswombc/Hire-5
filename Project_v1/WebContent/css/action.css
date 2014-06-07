@@ -159,4 +159,15 @@
   *background-color: #d9d9d9;
 }
 
+.profile h5{
+	float: right;
+	padding-right: 20px;
+	color: #575757;	
+}
+.navbar-form span{
+	
+	padding-right: 30px;
+	font-size: 18px;
+	color: #575757;		
+}
 

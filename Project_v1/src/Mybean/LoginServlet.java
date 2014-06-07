@@ -34,7 +34,6 @@ public class LoginServlet extends HttpServlet{
 		// id, pw에 Action으로 부터 넘어온 값 저장
 		String id = req.getParameter("log_id");
 		String pw = req.getParameter("log_pw");
-		System.out.println(id);
 		
 		/*for(int i=0;i<list.size();i++){
 		dto = (RegistDto)list.get(i);
@@ -53,12 +52,7 @@ public class LoginServlet extends HttpServlet{
 				// Action_login으로 보내주는 데이터
 				RequestDispatcher view = req.getRequestDispatcher("Action_login.jsp");
 				view.forward(req, resp);
-				// Blog로 보내주는 데이터
-				RequestDispatcher view1 = req.getRequestDispatcher("blog.jsp");
-				view1.forward(req, resp);				
-				// Map으로 보내주는 데이터
-				RequestDispatcher view2 = req.getRequestDispatcher("map.jsp");
-				view2.forward(req, resp);
+					
 			}
 			// 로그인 시 아이디 또는 비밀번호가 틀렸을 시
 			else if(id!=admin||pw!=pass){

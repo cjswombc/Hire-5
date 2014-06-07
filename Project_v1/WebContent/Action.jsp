@@ -19,12 +19,10 @@
 	// 인코딩 
 	response.setCharacterEncoding("UTF-8");
 	request.setCharacterEncoding("UTF-8");
-	
-	// 로그인 되었을 경우 가져오는 세션 값
-	String s_id = (String)session.getAttribute("s_id");
-	String s_pw = (String)session.getAttribute("s_pw");
 %>
 <script>
+
+
 //F5못누르게하기
 function LockF5(){
 	if (event.keyCode == 116) {
@@ -85,10 +83,7 @@ document.onkeydown = LockF5;
 
 	//패스워드 Ajax
 	
-	// 로그인을 해주세요 모달창에서 회원가입 or 아이디/비밀번호 찾기를 눌렀을 시
-
-	
-	
+	// 로그인을 해주세요 모달창에서 회원가입 or 아이디/비밀번호 찾기를 눌렀을 시	
 
 </script>
 </head>
@@ -226,11 +221,11 @@ document.onkeydown = LockF5;
     		<label for="email">이메일</label>
     		<input type="email" id="email" name="email" required="required" placeholder="E-mail"/>&nbsp;&nbsp;&nbsp;<button type="button" class="btn">E-mail 확인</button>
     		<br/>	
-    		</div>
-    	</div>
         <button type="submit" class="nobtn">확인</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
-    		</form>
+    	</form>
+    		</div>
+    	</div>
       </div>
     </div>
   </div>
@@ -247,18 +242,18 @@ document.onkeydown = LockF5;
        <div class="modal-body">
     	<div class="container">
     		<div>
-    		<form id="f2">
+    	<form id="f2">
     		<p>회원정보에 등록한 이메일과 입력한 이메일이 같아야,</p><p>비밀번호를 받을 수 있습니다.</p>
     		<label for="name_e">이름</label>
     		<input type="text" id="name_e" name="name_e" required="required" placeholder="이름"/>
     		<label for="email">이메일</label>
     		<input type="email" id="email" name="email" required="required" placeholder="E-mail"/>&nbsp;&nbsp;&nbsp;<button type="button" class="btn">E-mail 확인</button>
     		<br/>	
-    		</form>
-    		</div>
-       	</div>
        	 <button type="submit" class="nobtn">확인</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+    	</form>
+    		</div>
+       	</div>
        </div>
     </div>
   </div>
@@ -316,5 +311,6 @@ document.onkeydown = LockF5;
       	</div>
      </div>
 </div>
+
 </body>
 </html>

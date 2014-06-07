@@ -17,6 +17,8 @@
 	//서블릿에서 전해준 세션 값
 	String s_id = (String)session.getAttribute("s_id");
 	String s_pw = (String)session.getAttribute("s_pw");
+
+	System.out.println(s_id);
 	// MVC와 연결 후 
 %> 
 <script>
@@ -118,27 +120,7 @@ $(function() {
           .find( "img" ).css( "height", "72px" ).end().appendTo($gallery).fadeIn();
       });
     }
- 
-    //이미지 모달창
-/*     function viewLargerImage($link){
-      var src = $link.attr("href"),
-        title = $link.siblings("img").attr("alt"),
-        $modal = $("img[src$='"+src+"']");
-      if ($modal.length) {
-        $modal.dialog("open");
-      } else {
-        var img = $("<img alt='"+title+"' width='384' height='288' style='display: none; padding: 8px;' />" )
-          .attr("src", src).appendTo("body");
-        setTimeout(function(){
-          img.dialog({
-            title: title,
-            width: 400,
-            modal: true
-          });
-        },1);
-      }
-    } */
- 
+  
     // resolve the icons behavior with event delegation
     $("ul.gallery > li").click(function(event) {
       var $item = $( this ),
