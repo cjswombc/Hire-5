@@ -43,6 +43,15 @@ function LockF5(){
 }
 document.onkeydown = LockF5;
 
+function LockBack(){
+	if (event.keyCode == 8) {
+		event.keyCode = 0;
+		return false;
+		
+	}	
+}
+document.onkeydown = LockBack;
+
 	//side-tab선택시 작동
 	$(document).ready(function() {
 		 var menu_flag = true;		 
@@ -136,7 +145,7 @@ document.onkeydown = LockF5;
 <div class="side-menu">
 <!-- 클릭창 -->
 	<div class="click">
-		<h2 style="writing-mode:tb-rl; height:300pt; font-size: 9pt;">클릭을하면 넌 웃을 수 있고</h2>
+		<h2 style="writing-mode:tb-rl; height:300pt; font-size: 9pt;">User Info</h2>
 	</div>
 	<!-- 프로필 사진 -->
 	<div class="profile">
