@@ -54,6 +54,7 @@ public class RegistDao {
 		}
 	}
 	
+	// 글 리스트 받아오기
 	public Vector getBoard(){
 		Vector v = new Vector();
 		RegistDto dto = new RegistDto();
@@ -82,6 +83,48 @@ public class RegistDao {
 			freeCon();
 		}
 		return v;
+	}
+	
+	// 아이디 받아오기
+	public Vector ReadId(){
+		RegistDto dto = new RegistDto();
+		Vector list = new Vector(); 
+		try{
+		String sql = "select id from member";
+			con = pool.getConnection();
+			stmt = con.prepareStatement(sql);
+			rs = stmt.executeQuery();
+			while(rs.next()){
+				dto.setId(rs.getString("id"));
+				list.add(dto);
+			}
+		}catch(Exception err){
+			System.out.println("ReadId error : "+ err);
+		}finally{
+			freeCon();
+		}
+		return list;
+	}
+	// 이메일 받아오기
+	
+	public Vector ReadEmail(){
+		RegistDto dto = new RegistDto();
+		Vector list = new Vector();
+		try{
+		String sql = "select email from member";
+			con = pool.getConnection();
+			stmt = con.prepareStatement(sql);
+			rs = stmt.executeQuery();
+			while(rs.next()){
+				dto.setId(rs.getString("email"));
+				list.add(dto);
+			}
+		}catch(Exception err){
+			System.out.println("ReadEmail error : "+ err);
+		}finally{
+			freeCon();
+		}
+		return list;
 	}
 }
 

@@ -81,7 +81,103 @@ document.onkeydown = LockF5;
 		document.getElementById("imagePreview").filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = document.getElementById("imageInput").value;
 		}
 		}
+<<<<<<< HEAD
 		})();
+	// 유효성 검사 Ajax
+	
+	function doStart(){
+		var id = document.getElementById("id");
+		var pass = document.getElementById("pass");
+		var pwc = document.getElementById("pwc");
+		var email = document.getElementById("email");
+		
+		// id 필드에 값이 들어왔을 경우
+		if(id.value.length>0){
+		var param = "id="+id.value;
+		sendRequest("/Project_v1/AjaxId.do", param, callback1, "POST");
+		}
+		
+		// pass 필드에 값이 들어왔을 경우
+		if(pass.value.length>0){
+		var param = "pass="+pass.value;
+		sendRequest("/Project_v1/AjaxPass.do", param, callback2, "POST");
+		}
+		
+		// pwc 필드에 값이 들어왔을 경우
+		if(pwc.value.length>0){
+		var param = "pwc="+pwc.value+"&pass="+pass.value;
+		sendRequest("/Project_v1/AjaxPwc.do", param, callback3, "POST");
+		}
+		
+		// email 필드에 값이 들어왔을 경우
+		if(email.value.length>0){
+		var param = "email="+email.value;
+		sendRequest("/Project_v1/AjaxEmail.do", param, callback4, "POST");
+		}
+	}	
+	
+		// 아이디 콜백
+	function callback1(){
+		if(httpRequest.readyState==4){
+			if(httpRequest.status==200){
+				var a_id = document.getElementById("ajax_id");
+				var id = document.getElementById("id");
+				
+				if(id.value.length>0){					
+				a_id.innerHTML = httpRequest.responseText;
+				}
+				else if(id.value.length==0){
+					a_id.innerHTML = "";
+				}
+			}
+		}	
+	}
+		// 비번 콜백
+	function callback2(){
+		if(httpRequest.readyState==4){
+			if(httpRequest.status==200){
+				var a_pass = document.getElementById("ajax_pass");
+				var pass= document.getElementById("pass");
+				
+				if(pass.value.length>0){
+					a_pass.innerHTML = httpRequest.responseText;
+				}
+				else if(id.value.length==0){
+					a_pass.innerHTML = "";
+				}	
+			}
+		}	
+	}
+		// 비번 확인 콜백
+	function callback3(){
+		if(httpRequest.readyState==4){
+			if(httpRequest.status==200){
+				var a_pwc = document.getElementById("ajax_pwc");
+				var pwc= document.getElementById("pwc");
+				
+				if(pwc.value.length>0){
+					a_pwc.innerHTML = httpRequest.responseText;
+				}
+			}
+		}	
+	}
+		// 이메일 콜백
+	function callback4(){
+		if(httpRequest.readyState==4){
+			if(httpRequest.status==200){
+				var a_email= document.getElementById("ajax_email");
+				var email = document.getElementById("email");
+				if(email.value.length>0){
+					a_email.innerHTML = httpRequest.responseText;
+				}
+			}
+		}	
+	}
+	
+
+=======
+		})();
+>>>>>>> refs/remotes/origin/master
 </script>
 </head>
 <body>
@@ -132,20 +228,20 @@ document.onkeydown = LockF5;
 </p>
 <p>
 <label for="id">아이디</label>
-<input type="text" id="id" name="id" class="insert_input" placeholder="아이디" required="required" />
+<input type="text" id="id" name="id" class="insert_input" placeholder="아이디" required="required" oninput="doStart()"/><b id="ajax_id"></b>
 &nbsp;&nbsp;&nbsp;<!-- 아이디 중복 확인 Ajax가 들어갈 곳 -->
 </p>
 <p>
 <label for="pass">비밀번호</label>
-<input type="password" id="pass" name="pass" class="insert_input" placeholder="비밀번호" required="required" /><!-- 비밀번호 길이 체크 -->
+<input type="password" id="pass" name="pass" class="insert_input" placeholder="비밀번호" required="required" oninput="doStart()"/><!-- 비밀번호 길이 체크 --><b id="ajax_pass"></b>
 </p>
 <p>
 <label for="pwc">비밀번호 확인</label>
-<input type="password" id="pwc" name="pwc" class="insert_input" placeholder="비밀번호 확인" required="required"/><!-- 중복확인 체크 -->
+<input type="password" id="pwc" name="pwc" class="insert_input" placeholder="비밀번호 확인" required="required" oninput="doStart()"/><!-- 중복확인 체크 --><b id="ajax_pwc"></b>
 </p>
 <p>
 <label for="email">E-Mail</label>
-<input type="email" id="email" name="email" class="insert_input" placeholder="E-Mail" required="required"/>
+<input type="email" id="email" name="email" class="insert_input" placeholder="E-Mail" required="required" oninput="doStart()"/><b id="ajax_email"></b>
 </p>
 <p class="birth">
 <label for="birth">생년월일</label>

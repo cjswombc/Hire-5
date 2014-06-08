@@ -46,4 +46,36 @@
 		<filter-name>sessionExpiredFilter</filter-name>  
 		<url-pattern>*.do</url-pattern>  
 	</filter-mapping>
+	<servlet>
+		<servlet-name>AjaxId</servlet-name>
+		<servlet-class>Mybean.AjaxId</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AjaxId</servlet-name>
+		<url-pattern>/AjaxId.do</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>AjaxPass</servlet-name>
+		<servlet-class>Mybean.AjaxPass</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AjaxPass</servlet-name>
+		<url-pattern>/AjaxPass.do</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>AjaxPwc</servlet-name>
+		<servlet-class>Mybean.AjaxPwc</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AjaxPwc</servlet-name>
+		<url-pattern>/AjaxPwc.do</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>AjaxEmail</servlet-name>
+		<servlet-class>Mybean.AjaxEmail</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AjaxEmail</servlet-name>
+		<url-pattern>/AjaxEmail.do</url-pattern>
+	</servlet-mapping>
 </web-app>
