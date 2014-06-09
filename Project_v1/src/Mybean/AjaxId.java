@@ -37,15 +37,14 @@ public class AjaxId extends HttpServlet{
 		Vector list = dao.ReadId();*/
 		
 		Vector list = new Vector();
-		
 		// 임시로 저장을 해봤습니다.
 		list.add("admin");
 		list.add("cjswombc");
-		
+	
 		
 		// 임시 저장소
 		String value = "";
-		System.out.println("아이디 값:"+id);
+		
 		// 리스트에 담겨진 사이즈 만큼 반복 돌린 후 데이터 꺼내와서 value에 저장
 		for(int i=0; i<list.size();i++){
 			value = (String)list.get(i);

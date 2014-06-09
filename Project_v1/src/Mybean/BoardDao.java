@@ -42,7 +42,7 @@ public class BoardDao {
 				dto.setNum(rs.getInt("num"));
 				dto.setAddr(rs.getString("addr"));
 				dto.setCategory(rs.getString("category"));
-				dto.setImage(rs.getString("image"));
+				
 				dto.setContent(rs.getString("content"));
 				dto.setRegdate(rs.getString("regdate"));
 			}			
@@ -57,12 +57,12 @@ public class BoardDao {
 	// Write
 	public void WriteBoard(BoardDto dto){
 		try{
-	         String sql = "insert into board(num, content, regdate, addr, category, image) values(seq_num.nextVal,?,sysdate,?,?,?)";
+	         String sql = "insert into board(title, content, regdate, addr, category, id) values(?,?,now(),?,?,?,?)";
 	         stmt = con.prepareStatement(sql);
 	         stmt.setString(1, dto.getContent());
 	         stmt.setString(2, dto.getAddr());
 	         stmt.setString(3, dto.getCategory());
-	         stmt.setString(4, dto.getImage());
+	         
 	         
 	         stmt.executeUpdate();
 		}catch(Exception err){
@@ -84,7 +84,7 @@ public class BoardDao {
 	            if(rs.next()){
 	               dto.setNum(rs.getInt("num"));
 	               dto.setAddr(rs.getString("addr"));
-	               dto.setImage(rs.getString("image"));
+	               
 	               dto.setCategory(rs.getString("category"));
 	               dto.setRegdate(rs.getString("regdate"));
 	               dto.setContent(rs.getString("content"));
@@ -118,10 +118,10 @@ public class BoardDao {
 	public BoardDto UpdateBoard(BoardDto dto){
 		try{
 			 con = pool.getConnection();
-		     String sql="update board set image=?, addr=?, category=?, content=?, where num=?";
+		     String sql="update board set addr=?, category=?, content=?, where num=?";
 		     stmt = con.prepareStatement(sql);
 		       
-		     stmt.setString(1, dto.getImage());
+		     
 		     stmt.setString(2, dto.getAddr());
 		     stmt.setString(3, dto.getCategory());
 		     stmt.setString(4, dto.getContent());

@@ -90,35 +90,39 @@ document.onkeydown = LockF5;
 	// 유효성 검사 Ajax
 	
 	function doStart(){
-		var id = document.getElementById("id");
-		var pass = document.getElementById("pass");
-		var pwc = document.getElementById("pwc");
-		var email = document.getElementById("email");
-		
+		var id = document.getElementById("id");		
 		// id 필드에 값이 들어왔을 경우
 		if(id.value.length>0){
 		var param = "id="+id.value;
 		sendRequest("/Project_v1/AjaxId.do", param, callback1, "POST");
 		}
-		
+	}	
+	
+	function doStart1(){
+		var pass = document.getElementById("pass");
 		// pass 필드에 값이 들어왔을 경우
 		if(pass.value.length>0){
 		var param = "pass="+pass.value;
 		sendRequest("/Project_v1/AjaxPass.do", param, callback2, "POST");
 		}
-		
+	}
+	function doStart2(){
+		var pass = document.getElementById("pass");
+		var pwc = document.getElementById("pwc");
 		// pwc 필드에 값이 들어왔을 경우
 		if(pwc.value.length>0){
 		var param = "pwc="+pwc.value+"&pass="+pass.value;
 		sendRequest("/Project_v1/AjaxPwc.do", param, callback3, "POST");
 		}
-		
+	}
+	function doStart3(){
+		var email = document.getElementById("email");
 		// email 필드에 값이 들어왔을 경우
 		if(email.value.length>0){
 		var param = "email="+email.value;
 		sendRequest("/Project_v1/AjaxEmail.do", param, callback4, "POST");
 		}
-	}	
+	}
 	
 		// 아이디 콜백
 	function callback1(){
@@ -260,15 +264,15 @@ document.onkeydown = LockF5;
 </p>
 <p>
 <label for="pass">비밀번호</label>
-<input type="password" id="pass" name="pass" class="insert_input" placeholder="비밀번호" required="required" oninput="doStart()"/><!-- 비밀번호 길이 체크 --><b id="ajax_pass"></b>
+<input type="password" id="pass" name="pass" class="insert_input" placeholder="비밀번호" required="required" oninput="doStart1()"/><!-- 비밀번호 길이 체크 --><b id="ajax_pass"></b>
 </p>
 <p>
 <label for="pwc">비밀번호 확인</label>
-<input type="password" id="pwc" name="pwc" class="insert_input" placeholder="비밀번호 확인" required="required" oninput="doStart()"/><!-- 중복확인 체크 --><b id="ajax_pwc"></b>
+<input type="password" id="pwc" name="pwc" class="insert_input" placeholder="비밀번호 확인" required="required" oninput="doStart2()"/><!-- 중복확인 체크 --><b id="ajax_pwc"></b>
 </p>
 <p>
 <label for="email">E-Mail</label>
-<input type="email" id="email" name="email" class="insert_input" placeholder="E-Mail" required="required" oninput="doStart()"/><b id="ajax_email"></b>
+<input type="email" id="email" name="email" class="insert_input" placeholder="E-Mail" required="required" oninput="doStart3()"/><b id="ajax_email"></b>
 </p>
 <p class="birth">
 <label for="birth">생년월일</label>

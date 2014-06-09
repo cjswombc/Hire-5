@@ -97,6 +97,7 @@ public class RegistDao {
 			while(rs.next()){
 				dto.setId(rs.getString("id"));
 				list.add(dto);
+				System.out.println(list.get(0));
 			}
 		}catch(Exception err){
 			System.out.println("ReadId error : "+ err);
