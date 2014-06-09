@@ -54,6 +54,7 @@ public class RegistDao {
 		}
 	}
 	
+	// 로그인이다
 	public RegistDto logIn(String id, String pass){
 		RegistDto dto = new RegistDto();
 		String sql = "select name, id, pass from member where id=? and pass=?";
@@ -121,7 +122,6 @@ public class RegistDao {
 			while(rs.next()){
 				dto.setId(rs.getString("id"));
 				list.add(dto);
-				System.out.println(list.get(0));
 			}
 		}catch(Exception err){
 			System.out.println("ReadId error : "+ err);

@@ -11,6 +11,7 @@ public class RegistDto {
 	private String phone_type;
 	private String year;
 	private String month;
+	
 	public String getYear() {
 		return year;
 	}

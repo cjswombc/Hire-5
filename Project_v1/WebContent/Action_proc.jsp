@@ -9,8 +9,6 @@ response.setCharacterEncoding("EUC-KR");
 String id = request.getParameter("log_id");
 String pw = request.getParameter("log_pw");
 
-System.out.println("서블릿");
-
 dto = dao.logIn(id, pw);
 
 // 아이디, 패스워드 대용

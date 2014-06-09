@@ -24,7 +24,6 @@ public class LogoutServlet extends HttpServlet{
 		HttpSession session = req.getSession(false);
 		
 		String id = (String)session.getAttribute("s_id");
-		System.out.println(id);
 		session.invalidate();
 		
 		
@@ -32,7 +31,6 @@ public class LogoutServlet extends HttpServlet{
 		resp.setHeader("Cache-Control","no-cache");
 		resp.addHeader("Cache-Control","no-store");
 		resp.setDateHeader("Expires", 0);
-		System.out.println(id);
 		resp.sendRedirect("Action.jsp");
 	}
 }

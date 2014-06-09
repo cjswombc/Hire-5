@@ -20,7 +20,6 @@ public class SessionCheckFilter implements Filter{
 	 
 	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
 			 throws IOException, ServletException{
-		 System.out.println("½ÇÇàµÊ?");
 		 HttpServletRequest hreq = (HttpServletRequest)req;
 		 HttpServletResponse hresp = (HttpServletResponse)resp;
 		 
