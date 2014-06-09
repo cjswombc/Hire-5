@@ -5,6 +5,8 @@
 <meta charset="UTF-8">
 <title>WTF Google Map</title>
 <%
+	response.setCharacterEncoding("euc-kr");
+	request.setCharacterEncoding("euc-kr");
 	//session 연결
 	response.setHeader("P3P","CP='CAO PSA CONi OTR OUR DEM ONL'");
 	//서블릿에서 전해준 세션 값
@@ -156,7 +158,12 @@
          if (status == google.maps.GeocoderStatus.OK) {
             if (results[0]) {
                var address_nm = results[0].formatted_address;
-               $(".addr").text(address_nm);
+               var faddr_lat = results[0].geometry.location.lat();	//위도
+   			   var faddr_lng = results[0].geometry.location.lng();	//경도
+   			   
+   			   alert("위도 : " + faddr_lat + "\n" + "경도 : " + faddr_lng);
+   			   
+               $(".addr").val(address_nm);
                //alert(address_nm);
                 var infowindow = new google.maps.InfoWindow({
                   content : address_nm,
@@ -220,15 +227,13 @@
                <h4 class="modal-title" id="myModalLabel">글쓰기</h4>
             </div>
             <div class="modal-body">
-               <form id="upload" name="upload" class="f2" method="post" enctype="multipart/form-data">
+               <form id="upload" name="upload" class="f2" method="get" enctype="multipart/form-data" action="mapProc.jsp">
                   <p id="imagePreview" class="img"></p>
-                  <input type="text" placeholder="제목" class="text" name="sub" id="sub" /><br />
+                  <input type="text" placeholder="제목" class="text" name="title" id="title" /><br />
                   <input id="imageInput" type="file" name="myPhoto" onchange="loadImageFile();" /><br />
-               </form>
-               <p class='addr'></p>
-               <textarea rows="6" cols="60" placeholder="사진 내용" class="text"></textarea>
+               <input type="text" class="addr" name="addr" id="addr" /><br/>
+               <textarea rows="6" cols="60" placeholder="사진 내용" class="text" name="content" id="content"></textarea>
                <br />
-               <form id="f1" class="f1">
                   <button type="submit" class="nobtn">Send</button>
                   <button type="reset">Reset</button>
                </form>

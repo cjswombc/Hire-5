@@ -26,6 +26,13 @@ public class BoardDto {
 	
 	
 	public String getTitle() {
+		try{
+			if(multi.getParameter("title") != null){
+				title = multi.getParameter("title");
+			}
+		}catch(Exception err){
+			
+		}
 		return title;
 	}
 
@@ -34,6 +41,13 @@ public class BoardDto {
 	}
 
 	public String getId() {
+		try{
+			if(multi.getParameter("id") != null){
+				id = multi.getParameter("id");
+			}
+		}catch(Exception err){
+			
+		}
 		return id;
 	}
 

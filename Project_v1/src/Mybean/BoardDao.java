@@ -3,6 +3,7 @@ package Mybean;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Vector;
 
 public class BoardDao {
@@ -56,19 +57,30 @@ public class BoardDao {
 	
 	// Write
 	public void WriteBoard(BoardDto dto){
+		
 		try{
-	         String sql = "insert into board(title, content, regdate, addr, category, id) values(?,?,now(),?,?,?,?)";
+			System.out.println(dto.getTitle());
+			System.out.println(dto.getContent());
+			System.out.println(dto.getAddr());
+			
+	         String sql = "insert into board(title, content, regdate, addr) values(?,?,now(),?)";
+	         con =pool.getConnection();
 	         stmt = con.prepareStatement(sql);
 	         stmt.setString(1, dto.getTitle());
 	         stmt.setString(2, dto.getContent());
 	         stmt.setString(3, dto.getAddr());
-	         stmt.setString(4, dto.getCategory());
-	         stmt.setString(5, dto.getId());
+//	         stmt.setString(4, dto.getCategory());
+//	         stmt.setString(5, dto.getId());
 	         
 	         stmt.executeUpdate();
+		}catch(SQLException err){
+			err.printStackTrace();
+		}catch(NullPointerException err){
+			err.printStackTrace();
 		}catch(Exception err){
-			System.out.println("WriteBoard error : " + err);
-		}finally{
+			err.printStackTrace();
+		}
+		finally{
 			freeCon();
 		}
 	}

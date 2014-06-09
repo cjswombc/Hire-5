@@ -46,6 +46,7 @@ public class RegistDao {
 			stmt.setString(8, dto.getPhone_type());
 			stmt.executeUpdate();
 		}
+		
 		catch(Exception err){
 			System.out.println("insertBoard : " + err);
 		}

@@ -235,7 +235,7 @@ document.onkeydown = LockF5;
      <%}else if(s_id!=null){ %>
      <!-- 로그인 정보창 -->
      <form class="navbar-form pull-right">
-			<span><%=s_name%>님 '으리'</span><button type="button" id="logout" class="btn">로그아웃</button>
+			<span><b><%=s_name%></b>님 접속을 환영합니다</span><button type="button" id="logout" class="btn">로그아웃</button>
 	  </form>
 	  <%} %>	  
 	</div>
