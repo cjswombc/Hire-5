@@ -35,6 +35,8 @@ public class LoginServlet extends HttpServlet{
 		String id = req.getParameter("log_id");
 		String pw = req.getParameter("log_pw");
 		
+		
+		System.out.println("서블릿");
 		/*for(int i=0;i<list.size();i++){
 		dto = (RegistDto)list.get(i);
 		System.out.println(dto.getId());*/
@@ -50,9 +52,9 @@ public class LoginServlet extends HttpServlet{
 			session.setAttribute("s_pw", pass);
 			
 			// Action_login으로 보내주는 데이터
-			RequestDispatcher view = req.getRequestDispatcher("Action_login.jsp");
+			RequestDispatcher view = req.getRequestDispatcher("Action.jsp");
 			view.forward(req, resp);
-				
+			
 		}
 		// 로그인 시 아이디 또는 비밀번호가 틀렸을 시
 		else if(id!=admin||pw!=pass){

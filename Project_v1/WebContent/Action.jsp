@@ -24,6 +24,11 @@
 	// 인코딩 
 	response.setCharacterEncoding("UTF-8");
 	request.setCharacterEncoding("UTF-8");
+	// 로그인 되었을 경우 가져오는 세션 값
+	String s_id = (String)session.getAttribute("s_id");
+	String s_pw = (String)session.getAttribute("s_pw");
+	
+	System.out.println(s_id);
 %>
 <script>
 
@@ -36,7 +41,7 @@ function LockF5(){
 	}	
 }
 document.onkeydown = LockF5;
-
+			
 	//side-tab선택시 작동
 	$(document).ready(function() {
 		 var menu_flag = true;		 
@@ -81,7 +86,6 @@ document.onkeydown = LockF5;
 		document.getElementById("imagePreview").filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = document.getElementById("imageInput").value;
 		}
 		}
-<<<<<<< HEAD
 		})();
 	// 유효성 검사 Ajax
 	
@@ -173,11 +177,22 @@ document.onkeydown = LockF5;
 			}
 		}	
 	}
-	
-
-=======
-		})();
->>>>>>> refs/remotes/origin/master
+	// #Logout 버튼 구현
+	$(
+		function(){
+			$("#logout").click(function(){
+				document.user_logout.submit();
+			});
+		}		
+	);	
+	// #Logout1 버튼 구현
+	$(
+		function(){
+			$("#logout1").click(function(){
+				document.user_logout.submit();
+			});
+		}		
+	);
 </script>
 </head>
 <body>
@@ -192,12 +207,18 @@ document.onkeydown = LockF5;
    		<li class="divider-vertical"></li>
      <li><a href="map.jsp" style="font-size: 30px" target="if" draggable="false">Map</a></li>
      <li class="divider-vertical"></li>
+     <%if(s_id == null){ %>
      <li><a href="#" data-toggle="modal" data-target="#login-modal" style="font-size: 30px" draggable="false" id="blog">Blog</a></li>
      <li class="divider-vertical"></li>
+     <%}else if(s_id!=null){ %>
+     <li><a href="blog.jsp" style="font-size: 30px" target="if" draggable="false">Blog</a></li>
+     <li class="divider-vertical"></li>
+     <%} %>
    </ul>
-    
+
+    <%if(s_id == null){ %>
     <!-- 아이디 패스워드 입력창 -->
-    <form class="navbar-form pull-right" action="/Project_v1/Action.do" method="POST">
+    <form class="navbar-form pull-right" method="POST" name="f1" action="Action_proc.jsp">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     		<a href="#" data-toggle="modal" data-target="#modaljoin" style="color:#333333" draggable="false">회원가입</a>
     		&nbsp;&nbsp;
@@ -205,8 +226,14 @@ document.onkeydown = LockF5;
     	<br/>
      	<input type="text" placeholder="I.D" required="required" class="log_id" id="log_id" name="log_id"/>&nbsp;&nbsp;&nbsp;
      	<input type="password" placeholder="PassWord" required="required" class="log_pw" id="log_pw" name="log_pw"/>
-     	<button type="submit" class="nobtn">확인</button>
+     	<button type="submit" class="nobtn" id="log-btn">확인</button>
      </form>
+     <%}else if(s_id!=null){ %>
+     <!-- 로그인 정보창 -->
+     <form class="navbar-form pull-right">
+			<span><%=s_id%>님의 #번째 방문입니다.</span><button type="button" id="logout" class="btn">로그아웃</button>
+	  </form>
+	  <%} %>	  
 	</div>
 	</div>
 </nav>
@@ -275,7 +302,7 @@ document.onkeydown = LockF5;
 <option>KT</option>
 <option>LGT</option>
 </select>
-</p>          
+</p>7          
 <p class="accept">
 <!-- 이용 약관 -->
 <iframe src="use.jsp" id="use" name="use" width="100%" style="margin-left:0px;"></iframe>
@@ -381,6 +408,7 @@ document.onkeydown = LockF5;
      </div>
 </div>
 
+
 <!-- 로그인해주세요 모달창 -->
 <div class="modal fade" tabindex="-1" role="dialog" id="login-modal" aria-hidden="true">
 <div class="modal-dialog">
@@ -404,6 +432,11 @@ document.onkeydown = LockF5;
       	</div>
      </div>
 </div>
+
+<!-- hidden으로 사용될 form -->
+<form action="/Project_v1/Logout.do" name="user_logout" method="post">
+	<input type="hidden"/>
+</form>
 
 </body>
 </html>
