@@ -21,10 +21,27 @@ public class BoardDto {
 	private String encType;
 	private String saveFiles;
 	private String oriFile;
+	private String id;
+	private String title;
 	
 	
-	
-	// GenericServlet의 생성이 불가능 하여 그 자식을 찾아가서 비슷한 조건으로 만들어준다.
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+		// GenericServlet의 생성이 불가능 하여 그 자식을 찾아가서 비슷한 조건으로 만들어준다.
 		public void setPath(HttpServletRequest servlet, String path) {
 			this.path = servlet.getServletContext().getRealPath(path);
 			System.out.println(path);

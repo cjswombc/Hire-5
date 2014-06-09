@@ -59,10 +59,11 @@ public class BoardDao {
 		try{
 	         String sql = "insert into board(title, content, regdate, addr, category, id) values(?,?,now(),?,?,?,?)";
 	         stmt = con.prepareStatement(sql);
-	         stmt.setString(1, dto.getContent());
-	         stmt.setString(2, dto.getAddr());
-	         stmt.setString(3, dto.getCategory());
-	         
+	         stmt.setString(1, dto.getTitle());
+	         stmt.setString(2, dto.getContent());
+	         stmt.setString(3, dto.getAddr());
+	         stmt.setString(4, dto.getCategory());
+	         stmt.setString(5, dto.getId());
 	         
 	         stmt.executeUpdate();
 		}catch(Exception err){

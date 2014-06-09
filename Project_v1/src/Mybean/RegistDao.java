@@ -54,6 +54,30 @@ public class RegistDao {
 		}
 	}
 	
+	public RegistDto logIn(String id, String pass){
+		RegistDto dto = new RegistDto();
+		String sql = "select name, id, pass from member where id=? and pass=?";
+		try{
+			con = pool.getConnection();
+			stmt = con.prepareStatement(sql);
+			stmt.setString(1, id);
+			stmt.setString(2, pass);
+			rs = stmt.executeQuery();
+			
+			if(rs.next()){
+				dto.setName(rs.getString("name"));
+				dto.setId(rs.getString("id"));
+				dto.setPass(rs.getString("pass"));
+			}
+		}catch(Exception err){
+			System.out.println("logIn : " + err);
+		}
+		finally{
+			freeCon();
+		}
+		return dto;
+	}
+	
 	// 글 리스트 받아오기
 	public Vector getBoard(){
 		Vector v = new Vector();

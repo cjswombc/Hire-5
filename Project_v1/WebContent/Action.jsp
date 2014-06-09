@@ -27,8 +27,8 @@
 	// 로그인 되었을 경우 가져오는 세션 값
 	String s_id = (String)session.getAttribute("s_id");
 	String s_pw = (String)session.getAttribute("s_pw");
+	String s_name = (String)session.getAttribute("s_name");
 	
-	System.out.println(s_id);
 %>
 <script>
 
@@ -235,7 +235,7 @@ document.onkeydown = LockF5;
      <%}else if(s_id!=null){ %>
      <!-- 로그인 정보창 -->
      <form class="navbar-form pull-right">
-			<span><%=s_id%>님의 #번째 방문입니다.</span><button type="button" id="logout" class="btn">로그아웃</button>
+			<span><%=s_name%>님 '으리'</span><button type="button" id="logout" class="btn">로그아웃</button>
 	  </form>
 	  <%} %>	  
 	</div>

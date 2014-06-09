@@ -147,6 +147,7 @@
    }
 
    //해당 위치에 주소를 가져오고, 마크를 클릭시 infowindow에 주소를 표시한다.
+   // 이 mathod에 mathod에 mathod에 이미지 정보를 보여주게 해볼까
    function attachMessage(marker, latlng) {
       //geocoder = new google.maps.Geocoder();
       geocoder.geocode({
